@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12 mb-3">
+    <button
+      class="btn btn-outline-dark"
+      (click)="onAddStuff()">Add Stuff</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <app-stuff-item
+      *ngFor="let stuffEl of stuff; let i = index"
+      [stuff]="stuffEl"
+      [index]="i"></app-stuff-item>
+  </div>
+</div>
