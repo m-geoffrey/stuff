@@ -16,6 +16,7 @@ import { StuffItemComponent } from './stuff/stuff-list/stuff-item/stuff-item.com
 import { StuffStartComponent } from './stuff/stuff-start/stuff-start.component';
 import { StuffService } from './stuff/stuff.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { RecipesResolverService } from './stuff/recipes-resolver.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DataStorageService } from './shared/data-storage.service';
   ],
   providers: [
     StuffService,
-    DataStorageService
+    DataStorageService,
+    RecipesResolverService
   ],
   bootstrap: [AppComponent]
 })
