@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { StuffService } from '../stuff.service';
-import { Stuff } from '../stuff.model';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-stuff-edit',
@@ -17,7 +17,8 @@ export class StuffEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private stuffService: StuffService) { }
+              private stuffService: StuffService,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -62,6 +63,7 @@ export class StuffEditComponent implements OnInit {
     } else {
       this.stuffService.addStuff(this.stuffForm.value);
     }
+    this.dataStorageService.storeStuff();
     this.onCancel(); // for redirect
   }
 

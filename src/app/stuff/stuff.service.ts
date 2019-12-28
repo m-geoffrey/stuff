@@ -7,10 +7,17 @@ import { Stuff } from './stuff.model';
 export class StuffService {
   stuffChanged = new Subject<Stuff[]>();
 
-  private stuff: Stuff[] = [
+  /*private stuff: Stuff[] = [
     new Stuff('Hoodie en laine', 'Vêtement', 'Veste', '6 months', 'Winter'),
     new Stuff('Jupe', 'Vêtement', 'Pantalon', '9 months', 'Summer')
-  ];
+  ];*/
+
+  private stuff: Stuff[] = [];
+
+  setStuff(stuff: Stuff[]) {
+    this.stuff = stuff;
+    this.stuffChanged.next(this.stuff.slice());
+  }
 
   getStuff() {
     return this.stuff.slice();

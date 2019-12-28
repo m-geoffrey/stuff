@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StuffService } from './stuff.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-stuff',
@@ -9,10 +9,10 @@ import { StuffService } from './stuff.service';
 })
 export class StuffComponent implements OnInit {
 
-  constructor() {}
+  constructor(private dataStorageService: DataStorageService) {}
 
   ngOnInit() {
-
+    this.dataStorageService.fetchStuff().subscribe();
   }
 
 }

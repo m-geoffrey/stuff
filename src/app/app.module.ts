@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { StuffListComponent } from './stuff/stuff-list/stuff-list.component';
 import { StuffItemComponent } from './stuff/stuff-list/stuff-item/stuff-item.component';
 import { StuffStartComponent } from './stuff/stuff-start/stuff-start.component';
 import { StuffService } from './stuff/stuff.service';
+import { DataStorageService } from './shared/data-storage.service';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { StuffService } from './stuff/stuff.service';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    StuffService
+    StuffService,
+    DataStorageService
   ],
   bootstrap: [AppComponent]
 })

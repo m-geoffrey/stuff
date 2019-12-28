@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Stuff } from '../stuff.model';
 import { StuffService } from '../stuff.service';
+import { DataStorageService } from '../../shared/data-storage.service';
 
 @Component({
   selector: 'app-stuff-detail',
@@ -15,7 +16,8 @@ export class StuffDetailComponent implements OnInit {
 
   constructor(private stuffService: StuffService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -33,6 +35,7 @@ export class StuffDetailComponent implements OnInit {
 
   onDeleteStuff() {
     this.stuffService.deleteStuff(this.id);
+    this.dataStorageService.storeStuff();
     this.router.navigate(['/stuff']);
   }
 }
